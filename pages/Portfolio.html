@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            position: relative; /* Necesario para el posicionamiento absoluto */
+        }
+        img {
+            max-width: 95%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        video {
+            max-width: 95%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 255, 0, 0.5); /* Color verde transparente */
+            display: none; /* Oculto por defecto */
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* Asegura que esté por encima de las imágenes */
+        }
+
+        .overlay p {
+            color: white; /* Color del texto */
+            font-size: 24px;
+        }
+
+        .credits a {
+            color: #556B2F; /* Color verde */
+            text-decoration: none; /* Elimina el subrayado */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        .modo-nocturno .credits a {
+            color: #D3F9B5; /* Color verde lima en modo nocturno */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <section class="portfolio-item">
+            <h2>Meteorite Landing</h2>
+            <hr>
+       
+            <div class="image-container">
+                <img src="img/Meteorite.jpg" alt="Meteorite" />
+                <div class="overlay">
+                    <p>Texto de ejemplo</p>
+                </div>
+            </div>
+
+            <div class="credits" style="font-style: italic; font-size: 12px; text-align: right;">
+            <p>Photo by <a href="https://unsplash.com/es/@saimens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Simon Schwyter</a> on <a href="https://unsplash.com/es/fotos/estrellas-blancas-y-negras-en-el-cielo-iq2qbNT_2x0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Unsplash</a></p>
+            </div>
+        </section>
+
+        <section class="portfolio-item">
+            <h2> About Gods </h2>
+            <hr>
+            <div class="image-container">
+                <img src="img/gods.jpg" alt="Gods"/>
+                <div class="overlay">
+                    <p>Texto de ejemplo</p>
+                </div>
+            </div>
+
+            <div class="credits" style="font-style: italic; font-size: 12px; text-align: right;">
+                <p>Photo By <a href="https://unsplash.com/es/@davidramr96?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">David Ramírez</a> on <a href="https://unsplash.com/es/fotos/estatua-de-hombre-y-mujer-en-la-parte-superior-del-edificio-heJV9_UaAuQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Unsplash</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="portfolio-item">
+            <h2>But, You Would Loose?</h2>
+            <hr>
+            <div class="video-container">
+                <video id="video" src="img/Gojo_vs_Sukuna.mp4" alt="Gojo vs Sukuna" autoplay loop></video>
+                <div class="overlay">
+                    <p>Texto de ejemplo</p>
+                </div>
+            </div>
+        
+            <div class="credits" style="font-style: italic; font-size: 12px; text-align: right;">
+                <p> Video By <a href="https://steamcommunity.com/profiles/76561198012011361" target="_blank"> M00NL1GHT</a> on <a href="https://steamcommunity.com/" target="_blank">Steam</a></p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Reproduce el video cuando se carga la página
+        window.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('video');
+            video.play();
+        });
+
+        // Agregar evento de mouseover para mostrar la pantalla transparente
+        var containers = document.querySelectorAll('.image-container, .video-container');
+
+        containers.forEach(function(container) {
+            var overlay = container.querySelector('.overlay');
+
+            container.addEventListener('mouseover', function() {
+                overlay.style.display = 'flex'; // Mostrar la pantalla transparente
+            });
+
+            container.addEventListener('mouseout', function() {
+                overlay.style.display = 'none'; // Ocultar la pantalla transparente
+            });
+        });
+    </script>
+</body>
+</html>

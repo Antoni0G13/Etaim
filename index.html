@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etaim</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/mode-nocturno.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>José Antonio Gómez Román</h1>
+        <nav>
+            <ul>
+                <li><a href="https://linkedin.com/in/antgmz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                <li><a href="https://github.com/Antoni0G13" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a></li>
+                <li><a href="#" aria-label="TikTok"><i class="fab fa-tiktok fa-2x"></i></a></li>
+                <li><a href="https://twitter.com/Etaim13" target="_blank" aria-label="Twitter"><i class="fab fa-twitter fa-2x"></i></a></li>
+            </ul>
+        </nav>
+        <button id="modo-nocturno-btn">Night Mode</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li class="active"><a href="#" id="about-link">About Me</a></li> 
+            <li class="active"><a href="#" id="portfolio-link">Portfolio</a></li> 
+        </ul>
+    </nav>
+
+    <main>
+        <div id="about-content"></div>
+    </main>
+
+    <nav>
+        <ul>
+            <li><a href="https://linkedin.com/in/antgmz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+            <li><a href="https://github.com/Antoni0G13" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a></li>
+            <li><a href="#" aria-label="TikTok"><i class="fab fa-tiktok fa-2x"></i></a></li>
+            <li><a href="https://twitter.com/Etaim13" target="_blank" aria-label="Twitter"><i class="fab fa-twitter fa-2x"></i></a></li>
+        </ul>
+    </nav>
+
+    <script>
+    // Obtener referencia al enlace "About Me"
+    const aboutLink = document.getElementById('about-link');
+
+    // Función para cargar el contenido de "AboutMe.html" en el contenedor
+    function loadAboutMeContent() {
+        fetch('pages/AboutMe.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('about-content').innerHTML = html;
+            })
+            .catch(error => console.log('Error:', error));
+    }
+
+    // Cargar por defecto el contenido de "About Me"
+    loadAboutMeContent();
+
+    // Escuchar el evento de clic en el enlace "About Me"
+    aboutLink.addEventListener('click', function(event) {
+        // Prevenir el comportamiento predeterminado del enlace
+        event.preventDefault();
+
+        // Cargar el contenido de "About Me" en el contenedor
+        loadAboutMeContent();
+    });
+
+    // Obtener referencia al enlace "Portfolio"
+    const portfolioLink = document.getElementById('portfolio-link');
+
+    // Escuchar el evento de clic en el enlace "Portfolio"
+    portfolioLink.addEventListener('click', function(event) {
+        // Prevenir el comportamiento predeterminado del enlace
+        event.preventDefault();
+
+        // Cargar el contenido de "Portfolio.html" en el contenedor
+        fetch('pages/Portfolio.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('about-content').innerHTML = html;
+            })
+            .catch(error => console.log('Error:', error));
+    });
+    </script>
+
+    <script src="js/popup.js" defer></script>
+</body>
+</html>
